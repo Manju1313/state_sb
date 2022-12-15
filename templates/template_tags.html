@@ -1,0 +1,701 @@
+<!--  if  else else if:-{% if variable %}
+// statements
+{% else %}
+// statements
+{% endif %} 
+
+
+{% if athlete_list %}
+    Number of athletes: {{ athlete_list|length }}
+{% elif athlete_in_locker_room_list %}
+    Athletes should be out of the locker room soon!
+{% else %}
+    No athletes.
+{% endif %}
+
+ -->
+
+
+
+
+
+
+ <html>
+    <head><title>Django Template System - Decodejava.com</title></head>
+    <body>
+    <b>var1 = {{ 100 }}</b> <br/>
+    <b>var2 = {{ 200 }}</b> <br/>
+    <b>var3 = {{ 300 }}</b> <br/>
+    
+    
+    {% if var1 < var2 %}
+        <p><i>200 </i></b>
+    {% else %}
+        <p><i>100 </i></b>
+    {% endif %}
+    
+        
+    {% if var1 > var2 %}
+        <p><i>100 </i></p>
+    {% else %}
+        <p><i>200</i></p>
+    {% endif %}
+        
+        
+    {% if var1 <= var2 %}
+        <p><i>var1 is less than or equal to var2 </i></p>
+    {% else %}
+        <p><i>var1 is not less than or not equal to var2 </i></p>
+    {% endif %}
+    
+    
+    {% if var1 >= var2 %}
+        <p><i>var1 is greater than or equal to var2 </i></p>
+    {% else %}
+        <p><i>var1 is not greater than or not equal to var2 </i></p>
+    {% endif %}
+    
+    
+    {% if var1 == var2 %}
+        <p><i>var1 is equal to var2 </i></p>
+    {% else %}
+        <p><i>var1 is not equal to var2 </i></p>
+    {% endif %}
+    
+    
+    {% if var1 != var2 %}
+        <p><i>var1 is not equal to var2 </i></p>
+    {% else %}
+        <p><i>var1 is equal to var2 </i></p>
+    {% endif %}
+    
+    
+    {% if var1 < var2 and var1 < var3 %}
+        <p><i>var1 is less than var2 and var1 is less than var3 </i></p>
+    {% else %}
+        <p><i>var1 is not less than var2 and var1 is not less than var3 </i></p>
+    {% endif %}
+    
+    
+    {% if var1 < var2 or var3 < var2 %}
+        <p><i>var1 is less than var2 or var3 is less than var2 </i></p>
+    {% else %}
+        <p><i>var1 is not less than var2 or var3 is not less than var2 </i></p>
+    {% endif %}
+    
+    
+    {% if not var1 > var2 %}
+        <p><i>var1 is not greater than var2 </i></p>
+    {% else %}
+        <p><i>var1 is greater than var2 </i></p>
+    {% endif %}
+    
+    
+    {% if a != a %}
+        <p><i>a is not equal to a </i></b>
+    {% else %}
+        <p><i>a is equal to a </i></b>
+    {% endif %}
+    
+    
+    {% if 'hi' != 'hi' %}
+        <p><i>hi is not equal to hi </i></b>
+    {% else %}
+        <p><i>hi is equal to hi </i></b>
+    {% endif %}
+    
+    
+    {% if 'hello world' != "hello world" %}
+        <p><i>hello world is not equal to hello world </i></b>
+    {% else %}
+        <p><i>hello world is equal to hello world </i></b>
+    {% endif %}
+    
+    
+    {% if zero == 0 %}
+        <p><i>zero is equal to 0 </i></b>
+    {% else %}
+        <p><i>zero is not equal to 0</i></b>
+    {% endif %}
+    
+    <!-- {% now "D M Y H T " %}
+    It is {% now "D d M Y" %}
+    Above tag will display, Tue 04 Feb 2020 -->
+    
+    <html>
+     It is the {% now "jS \o\f F" %}    zero is not equal to 0 It is the 1st of December
+     It is the {% now "jS \o\f P" %}    It is the 1st of 12:36 p.m.
+    
+    </html>
+                    {% comment 'all' %}
+                    {% loadblocktrans %}
+                    {% now "Y" as current_year %}
+                    {% blocktrans %} 2022 {{ current_year }}{% endblocktrans %}
+                    {% endcomment %}
+    
+    
+    commenttags:-   {% comment 'comment_name' %}
+                    {% endcomment %}
+                    {% comment "Optional note" %}
+                        Commented out text with {{ create_date|date:"c" }}
+                    {% endcomment %}
+    
+    
+    cycle tags:-   {% cycle 'value_1' 'value_2' %}
+    
+                {% for o in some_list %}
+                <tr class="{% cycle 'row1' 'row2' %}">
+                    ...
+                </tr>
+                {% endfor %}
+    
+                {% for i in data %}
+                    <div class="{% cycle 'row1' 'row2' %}">
+                        {{ i }}
+                    </tr>
+                {% endfor %}
+    
+    for loop:-  {% for i in list %}
+                // Do this in non - empty condition
+                {% empty %}
+                // Do this in empty condition
+                {% endfor %}  
+                
+                {% for i in data %}
+                <div class="row">
+                    {{ i }}
+                </div>
+            {% endfor %}
+    
+    
+    firstof:-  {% firstof var1 var2 var3... %}
+    
+                {% if var1 %}
+                    {{ var1 }}
+                {% elif var2 %}
+                    {{ var2 }}
+                {% elif var3 %}
+                    {{ var3 }}
+                {% endif %}
+    
+                {% firstof var1 var2 var3 "fallback value" %}
+    
+    
+                <h3>Variable displayed : </h3>
+                {% firstof var1 var2 var3 %}
+    
+        This tag auto-escapes variable values. You can disable auto-escaping with: 
+                {% autoescape off %}
+                {% firstof var1 var2 var3 "fallback value" %}
+                {% endautoescape %}
+    
+        Or if only some variables should be escaped, you can use:
+                {% firstof var1 var2|safe var3 "fallback value"|safe %}
+    
+    
+    for loop:-  {% for i in list %}
+                {% endfor %}
+    
+                <ul>
+                    {% for athlete in athlete_list %}
+                        <li>{{ athlete.name }}</li>
+                    {% endfor %}
+                    </ul>
+    
+    
+    include:-       {% include "template_name.html" %}
+                    {% include "foo/bar.html" %}
+    
+    
+                    {% include "name_snippet.html" with person="Jane" greeting="Hello" %}
+    
+    
+    
+    lorem tags:-    {% lorem [count] [method] [random] %}
+                        
+                        <html>
+                            {% lorem %}
+                        </html>
+    
+    
+    
+    Django 
+    template tags:-     {% tag_name %}
+    
+                        Tags are surrounded by {% and %} like this:
+    
+                        {% csrf_token %}
+                        Most tags accept arguments, for example :
+    
+                        {% cycle 'odd' 'even' %}
+    
+    
+    </body>
+</html>
+    
+    
+    <!-- {% for source in sources %}
+      <tr>
+        <td>{{ source }}</td>
+        <td>
+          {% ifequal title source %}
+            Just now!
+          {% endifequal %}
+        </td>
+      </tr>
+    {% endfor %}
+    
+                    or
+    
+    
+    {% for source in sources %}
+          <tr>
+            <td>{{ source }}</td>
+            <td>
+              {% if title == source %}
+                Just now!
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %} 
+    
+    
+    {% for source in sources %}
+       <table>
+          <tr>
+              <td>{{ source }}</td>
+              <td>
+                  {% if title == source %}
+                    Just now! 
+                  {% endif %}
+              </td>
+          </tr>
+       </table>
+    {% endfor %}
+    
+    
+    {% for i in data %}
+        <div class="row">
+            {{ i }}
+        </div>
+    {% endfor %}
+    
+    {% for x, y in points %}
+        There is a point at {{ x }}, {{ y }}
+    {% endfor %}
+    
+    {% for key, value in data.items %}
+        {{ key }}: {{ value }}
+    {% endfor %}
+    -->
+    
+    
+    
+    
+    
+                    Commonly used Tags in Django Templates
+            -------------------------------------------------------
+    
+    
+    Comment:------
+    
+                    {% comment "Optional note" %}
+        
+                    Commented out text with {{ create_date|date:"c" }}
+    
+    
+                    {% endcomment %}
+    
+    
+    
+    cycle:-------
+    
+    
+                        {% for o in some_list %} 
+                            <tr class="{% cycle 'row1' 'row2' %}"> 
+                                ... 
+                            </tr> 
+                        {% endfor %} 
+    
+    
+    extends:-------
+    
+    
+                    dir1/
+                        template.html
+                        base2.html
+                        my/
+                            base3.html
+                    base1.html
+                    In template.html, the following paths would be valid:
+    
+                    {% extends "./base2.html" %}
+                    {% extends "../base1.html" %}
+                    {% extends "./my/base3.html" %}
+    
+    
+    if:------
+    
+    
+                    {% if athlete_list %}
+                        Number of athletes: {{ athlete_list|length }}
+                    {% elif athlete_in_locker_room_list %}
+                        Athletes should be out of the locker room soon!
+                    {% else %}
+                        No athletes.
+                    {% endif %}
+    
+    
+    for loop:------
+    
+                    <ul>
+                        {% for athlete in athlete_list %}
+                            <li>{{ athlete.name }}</li>
+                        {% endfor %}
+                        </ul>
+    
+    
+    
+    for … empty loop:------
+    
+                    <ul> 
+                        {% if athlete_list %} 
+                            {% for athlete in athlete_list %} 
+                            <li>{{ athlete.name }}</li> 
+                            {% endfor %} 
+                        {% else %} 
+                            <li>Sorry, no athletes in this list.</li> 
+                        {% endif %} 
+                        </ul> 
+    
+    
+    Boolean Operators:------
+    
+    
+                    <ul> 
+                        {% if variable boolean_operator value %}
+                        // statements
+                        {% endif %}
+                    </ul> 
+    
+    
+    firstof:------
+    
+                    {% firstof var1 var2 var3 %}
+                    This is equivalent to:
+    
+                    {% if var1 %}
+                        {{ var1 }}
+                    {% elif var2 %}
+                        {{ var2 }}
+                    {% elif var3 %}
+                        {{ var3 }}
+                    {% endif %}
+                    One can also use a literal string as a fallback value in case all passed variables are False:
+    
+                    {% firstof var1 var2 var3 "fallback value" %}
+    
+    
+    
+    include:-------
+    
+    
+                    {% include "foo/bar.html" %}
+    
+    
+    
+    lorem:--------
+    
+    
+                    {% lorem %} will output the common “lorem ipsum” paragraph.
+                    {% lorem 3 p %} will output the common “lorem ipsum” paragraph and two random paragraphs each wrapped in HTML tags.
+                    {% lorem 2 w random %} will output two random Latin words.
+    
+    
+    
+    now:-------
+    
+                    It is {% now "D d M Y" %}
+    
+    
+    url:------
+    
+    
+                    {% url 'some-url-name' v1 v2 %}
+    
+    
+    
+    
+    
+    
+    
+    
+                            template tags and examples:-
+                        -------------------------------------------------------
+    
+    
+    Below is a minimal template that illustrates 
+    a few basics.Each element will be explained later in this document.:---------
+    
+    
+                    {% extends "base_generic.html" %}
+    
+                    {% block title %}{{ section.title }}{% endblock %}
+    
+                    {% block content %}
+                    <h1>{{ section.title }}</h1>
+    
+                    {% for story in story_list %}
+                    <h2>
+                    <a href="{{ story.get_absolute_url }}">
+                        {{ story.headline|upper }}
+                    </a>
+                    </h2>
+                    <p>{{ story.tease|truncatewords:"100" }}</p>
+                    {% endfor %}
+                    {% endblock %}
+    
+    
+    
+    Variables:---------
+    
+                    {% for k, v in defaultdict.items %}
+                        Do something with k and v here...
+                    {% endfor %}
+    
+    
+    
+    default:-----------
+    
+                    {{ value|default:"nothing" }}
+    
+    
+    
+    length:------------
+    
+                    {{ value|length }}
+    
+    
+    
+    filesizeformat:--------- 
+    
+                    {{ value|filesizeformat }}
+    
+    
+    
+    if lenght >1:---------
+    
+                    {% if athlete_list|length > 1 %}
+                    Team: {% for athlete in athlete_list %} ... {% endfor %}
+                 {% else %}
+                    Athlete: {{ athlete_list.0.name }}
+                 {% endif %}
+    
+    
+                
+    
+    Comments:-----------
+    
+                        {# greeting #}hello
+    
+                        A comment can contain any template code, invalid or not. For example:
+    
+                        {# {% if foo %}bar{% else %} #}
+
+
+
+
+Template inheritance:-----------
+    
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <link rel="stylesheet" href="style.css">
+                            <title>{% block title %}My amazing site{% endblock %}</title>
+                        </head>
+
+                        <body>
+                            <div id="sidebar">
+                                {% block sidebar %}
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li><a href="/blog/">Blog</a></li>
+                                </ul>
+                                {% endblock %}
+                            </div>
+
+                            <div id="content">
+                                {% block content %}{% endblock %}
+                            </div>
+                        </body>
+                        </html>
+    
+
+
+                        {% extends "base.html" %}
+
+                        {% block title %}My amazing blog{% endblock %}
+                        
+                        {% block content %}
+                        {% for entry in blog_entries %}
+                            <h2>{{ entry.title }}</h2>
+                            <p>{{ entry.body }}</p>
+                        {% endfor %}
+                        {% endblock %}
+
+                        
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <link rel="stylesheet" href="style.css">
+                            <title>My amazing blog</title>
+                        </head>
+
+                        <body>
+                            <div id="sidebar">
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li><a href="/blog/">Blog</a></li>
+                                </ul>
+                            </div>
+
+                            <div id="content">
+                                <h2>Entry one</h2>
+                                <p>This is my first entry.</p>
+
+                                <h2>Entry two</h2>
+                                <p>This is my second entry.</p>
+                            </div>
+                        </body>
+                        </html>
+
+                        
+
+                        {% translate "Title" as title %}
+                        {% block content %}{{ title }}{% endblock %}
+
+
+
+                        {% block content %}
+                        ...
+                        {% endblock content %}
+
+
+                        {% if change_title %}
+                        {% block title %}Hello!{% endblock title %}
+                        {% endif %}
+
+
+
+                        Automatic HTML escaping:----------------
+                    -------------------------------------------------------
+                    
+                    Hello, {{ name }}
+
+
+                    <script>alert('hello')</script>
+
+
+                    Hello, <script>alert('hello')</script>
+
+
+                    <b>username
+
+
+                    Hello, <b>username
+
+
+
+
+                        This will be escaped: {{ data }}
+                        This will not be escaped: {{ data|safe }}
+
+
+                        This will be escaped: &lt;b&gt;
+                        This will not be escaped: <b>
+
+
+                        {% autoescape off %}
+                            Hello {{ name }}
+                        {% endautoescape %}
+
+
+
+                        Auto-escaping is on by default. Hello {{ name }}
+
+                        {% autoescape off %}
+                            This will not be auto-escaped: {{ data }}.
+
+                            Nor this: {{ other_data }}
+                            {% autoescape on %}
+                                Auto-escaping applies again: {{ name }}
+                            {% endautoescape %}
+                        {% endautoescape %}
+
+
+
+                        base.html¶ :-------
+                            {% autoescape off %}
+                            <h1>{% block title %}{% endblock %}</h1>
+                            {% block content %}
+                            {% endblock %}
+                            {% endautoescape %}
+
+
+                        child.html¶ :-------
+                            {% extends "base.html" %}
+                            {% block title %}This &amp; that{% endblock %}
+                            {% block content %}{{ greeting }}{% endblock %}
+
+
+
+                            greeting variable contains the string <b>Hello!</b>:
+                            <h1>This &amp; that</h1>
+                            <b>Hello!</b>
+
+
+
+                        String literals and automatic escaping:--------
+                    ----------------------------------------------------------
+
+                        {{ data|default:"This is a string literal." }}
+
+                        {{ data|default:"3 &lt; 2" }}
+
+                        {{ data|default:"3 < 2" }}  {# Bad! Don't do this. #}
+
+
+
+                        Accessing method calls:----------------------
+                    ---------------------------------------------------------
+
+                    {% for comment in task.comment_set.all %}
+                        {{ comment }}
+                    {% endfor %}
+
+
+                    {{ task.comment_set.all.count }}
+
+
+
+                    models.py¶ :------------
+                        class Task(models.Model):
+                            def foo(self):
+                                return "bar"
+
+                    template.html¶ :------------
+                                {{ task.foo }}
+
+
+
+                    Custom tag and filter libraries¶:---------
+                ------------------------------------------------------
+
+                    {% load humanize %}
+
+                    {{ 45000|intcomma }}
+
+
+
+                    
+                    {% load humanize i18n %}

@@ -1,0 +1,185 @@
+<!-- add -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+{% for x in value %}
+  <h3>The value is {{ x|add:"10" }} dollars.</h3>
+{% endfor %}
+
+<p>In views.py you can see what the prices variable looks like.</p>
+
+</body>
+</html>    -->
+
+
+
+<!-- check -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+{% for x in books %}
+  <h1>{{ x|add:"-CHECK" }}</h1>
+{% endfor %}
+
+<p>In views.py you can see what the prices variable looks like.</p>
+</body>
+</html>           -->
+
+
+
+<!-- add at end -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+{% for x in books %}
+  <h1>{{ x|add:'marbles'}}</h1>
+{% endfor %}
+
+<p>In views.py you can see what the prices variable looks like.</p>
+</body>
+</html>           -->
+
+
+
+<!-- add slashes -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<h1>{{ name|addslashes }}</h1>
+
+<p>In views.py you can see what the name variable looks like.</p>
+
+</body>
+</html>                   -->
+
+
+
+<!-- alert -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="alert('{{ name|addslashes }}')">Click me!</button>
+<button onclick="alert('{{ manoj }}')">Click me!</button>
+
+<p>This example would return an error when someone clicked the button,
+if we did not escape the quote in the name variable.</p>
+
+<p>In views.py you can see what the name variable looks like.</p>
+
+</body>
+</html>      -->
+
+
+<!-- capsfirst -->
+<!-- <h1>{{ name|capfirst }}</h1> -->
+
+
+<!-- center -->
+<!-- <h1>{{ name|center:100 }}</h1>
+<textarea>{{ name|center:20 }}</textarea> -->
+
+
+
+<!-- cut -->
+<!-- <h1>{{ name|cut:"gopalan" }}</h1> -->
+
+
+
+<!-- default -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+{% for x in colors %}
+  <h1>{{ x|default:"red" }}</h1>
+{% endfor %}
+
+<p>In views.py you can see what the colors variable looks like.</p>
+
+</body>
+</html>             -->
+
+
+<!-- default_if_none -->
+<!-- {% for x in colors %}
+  <h1>{{ x|default_if_none:"purple" }}</h1>
+{% endfor %} -->
+
+
+
+<!-- dictsort -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+{% for x in cars|dictsort:"year" %}
+  <p>{{ x.year }} {{ x.brand }} {{ x.model }}.</p>
+{% endfor %}
+
+{% for x in cars|dictsortreversed:"year" %}
+  <p>{{ x.year }} {{ x.brand }} {{ x.model }}.</p>
+{% endfor %}
+
+<p>In views.py you can see what the colors variable looks like.</p>
+
+</body>
+</html>                   -->
+
+
+
+<!-- divisibleby -->
+{% comment %}
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+{% if totalsum|divisibleby:5 %}
+  <h1>Yes, it is!</h1>
+{% else %}
+  <h1>Not divisible</h1>
+{% endif %}
+  
+
+<p>In views.py you can see what the totalsum variable looks like.</p>
+
+</body>
+</html>                   -->
+{% endcomment %}
+
+
+{% comment %}
+<!-- timeuntil -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<h1>{{ marslanding|timeuntil:moonlanding }}</h1>
+
+<p>In views.py you can see what the marslanding variable looks like.</p>
+
+</body>
+</html>             -->
+{% endcomment %}
+
+
+
+
+<!-- date since -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>{{ mybirthdate|timesince }}</h1>
+
+<p>In views.py you can see what the mybirthdate variable looks like.</p>
+
+</body>
+</html>                  
+
+
+

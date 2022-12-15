@@ -1,0 +1,439 @@
+
+{% comment %}   ---------  {% endcomment %}
+      
+
+
+<!-- autoescape -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+{% autoescape on %}
+  <h1>{{ heading }}</h1>
+{% endautoescape %}
+<p>Check out views.py to see what the heading variable looks like.</p>
+
+{% autoescape off %}
+  <h1>{{ heading }}</h1>
+{% endautoescape %}
+
+<p>Check out views.py to see what the heading variable looks like.</p>
+
+</body>
+</html>                               -->
+
+
+
+<!-- block -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+<h1>Welcome</h1>
+
+{% block userinfo %}
+  <h2>Not registered yet</h2>
+{% endblock %}
+
+<p>Check out the two templates to see what they look like, and views.py to see the reference to the child template.</p>
+
+</body>
+</html>                   -->
+
+
+
+<!-- cycle tag -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<ul>
+{% for x in fruits %}
+  <li style="color:{% cycle 'red' 'green' 'blue' %}">
+    {{ x }}
+  </li>
+{% endfor %}
+</ul>
+
+<p>Check out views.py to see what the fruits variable looks like.</p>
+
+</body> -->
+
+
+<!-- extends -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<h1>Welcome</h1>
+<hr>
+
+{% block heading %}
+  <h2>No name</h2>
+{% endblock %}
+
+<h2>My Cars</h2>
+
+<ul>
+  {% block cars %}
+    <li>No cars</li>
+  {% endblock %}
+</ul>
+
+<p>Check out the two templates to see what they look like, and views.py to see the reference to the child template.</p>
+
+</body>
+</html>                    -->
+
+
+
+<!-- filter -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<h1>Welcome Everyone!</h1>
+
+{% filter upper %}
+  <p>Have a great day!</p>
+{% endfilter %}
+
+{% filter lower %}
+  <p>Have a great day!</p>
+{% endfilter %}
+
+</body>
+</html>           -->
+
+
+
+<!-- firstof -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<h1>{% firstof x y z %}</h1>
+
+<p>Check out views.py to see the content of the x, y, and z variables.</p>
+
+</body>
+</html>                   -->
+
+
+
+<!-- for -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+{% for x, y in laptop.items %}
+  <p>The {{ x }} is {{ y }} .</p>
+  <li>{{ forloop.counter }}</li>
+  <li>{{ forloop.counter0 }}</li>
+  
+  <li
+  {% if forloop.first %}
+    style='background-color:lightblue;'
+  {% endif %}>{{ x }}</li>
+  
+  <li
+    {% if forloop.last %}
+      style='background-color:lightblue;'
+    {% endif %}
+    >{{ x }}</li>
+    
+    <li>
+        {{ forloop.parentloop.counter }}
+        {{ y }}
+      </li>
+
+      <li>{{ forloop.revcounter }}</li>
+      <li>{{ forloop.revcounter0 }}</li>
+
+{% endfor %}
+
+<p>Check out views.py to see what the mycar dictionary looks like.</p>
+
+</body>
+</html>                             -->
+
+
+
+<!-- if -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+{% if value == 1 %}
+  <h1>Hello!</h1>
+{% elif myvar == 2 %}
+  <h1>Welcome!</h1>
+{% else %}
+  <h1>Greetings!</h1>
+{% endif %}
+
+<p>Check out views.py to see what the myvar variable looks like.</p>
+
+</body>
+</html>                   -->
+
+
+
+<!-- ifchanged -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<ul>
+  {% for x in list %}
+    {% ifchanged %}
+      <li>{{ x }}</li>
+    {% endifchanged %}
+  {% endfor %}
+</ul>
+
+{% for x in list %}
+  {% ifchanged %}
+    <p>New value: {{ x }}</p>
+  {% else %}
+    <p>Same value: {{ x }}</p>
+  {% endifchanged %}
+{% endfor %}
+
+<p>Check out views.py to see what the mylist object look like.</p>
+
+</body>
+</html>             -->
+
+
+
+
+<!-- include -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+{% include "include_menu.html" with me="SURESH" sponsor="EMPLOYMENT" %}
+
+<h1>Welcome</h1>
+<h3> {% lorem 100 w %} </h3>
+<p>This is my web site.</p>
+
+<p>Check out mymenu.html to see the HTML content of the include.</p>
+
+</body>
+</html>          -->
+
+
+
+
+<!-- lorem -->
+<!-- {% lorem 50 b %}
+{% lorem 50 p %}
+{% lorem 50 w %} -->
+
+
+
+
+<!-- now -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<h1>{% now "Y-m-d   G:i:s A" %}</h1>
+
+</body>
+</html>                  
+
+Character	Description
+y	Year, 2 digits (00-99)
+Y	Year, 4 digits (0001-9999)
+L	Returns whether now is a leap year or not (True-False)
+m	Month, 2 digits (01-12)
+n	Month, 1 or 2 digits (1-12)
+M	Month, 3 letters (Jan-Dec)
+b	Month, 3 lower case letters (jan-dec)
+E	Month, text in local language
+F	Month, full text (January-December)
+N	Month, max 5 letters, if month name has more, use proper abbreviation (Jan. Dec.)
+t	Number of days in month (28-31)
+d	Day of month (01-31)
+D	Day of week (Sun-Sat)
+j	Day of month (1-31)
+l	Day of week (Sunday-Saturday)
+S	Ending of number (st-nd-rd-th)
+w	Day of week (0-6)
+z	Day of year (1-366)
+W	Week of year (ISO-8601) (1-53)
+g	Hour (1-12)
+G	Hour (0-23)
+h	Hour (01-12)
+H	Hour (00-23)
+i	Minutes (00-59)
+s	Seconds (00-59)
+u	Microseconds (000000-999999)
+a	Meridiem (a.m. or p.m.)
+A	Meridiem (A.M. or P.M.)
+f	The Time (9:45). If the time is precisely (on the minute) nine, it returns only the hour (9)
+P	The Time (9:45 p.m.). If the time is precisely (on the minute) nine, it returns (9 p.m.). If the time is precisely 0:00, it returns (midnight). If the time is precisely 12:00 it returns (noon).
+e	Name of time zone, like (GMT) or (UTC)
+I	Returns whether we are in daylight saving time or not (1 or 0)
+O	The difference to GMT (+0500)
+T	Local time zone, like (UTC) or (EST)
+Z	Difference to GMT, in seconds (3600)
+c	Current date in ISO 8601 format (2022-04-05T12:38:30.797643+00:00)
+r	Current date in RFC 5322 format (Tue, 05 Apr 2022 12:39:24 +0000)
+U	Seconds since January 1 1970 00:00:00 -->
+
+
+
+
+
+<!-- regroup -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+{% regroup lap by brand as top %}
+
+{{ top }}
+{% for x in top %}
+<h1>{{  x.grouper }}</h1>
+{% for y in x.list %}
+<p>{{ y.model }}:{{ y.year }}</p>
+{% endfor %}
+{% endfor %}
+
+<p>Check out views.py to see what the cars list looks like.</p>
+
+</body> -->
+ 
+
+<!-- reset cycle -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<ul>
+  {% for x in books %}
+    <li style="color:{% cycle 'red' 'green' 'blue' 'pink' as color %}">
+      {{ x }}
+    </li>
+    {% if x == "english" %}
+      {% resetcycle %}
+    {% endif %}
+  {% endfor %}
+</ul>
+
+
+<ul>
+    {% for x in books %}
+      <li style="
+          color:{% cycle 'red' 'green' 'blue' 'pink' as mycolor %};
+          background:{% cycle 'grey' 'beige' 'red' 'purple' as mybg %};
+        ">
+        {{ x }}
+      </li>
+      {% if x == "english" %}
+        {% resetcycle mybg %}
+      {% endif %}
+    {% endfor %}
+
+<p>Check out views.py to see what the fruits variable looks like.</p>
+
+</body>
+</html>                   -->
+
+
+
+<!-- spaceless -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+{% spaceless %}
+  <ul>
+    {% for x in books %}
+      <li>{{ x }}</li>
+    {% endfor %}
+  </ul>
+{% endspaceless %}
+
+<p>Check out views.py to see what the fruits variable looks like.</p>
+
+</body>
+</html>             -->
+
+
+
+<!-- template tags -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<h1>
+  {% templatetag openblock %}
+    extends
+  {% templatetag closeblock %}
+</h1>
+
+</body>
+</html>              
+
+
+Name	        Output
+openvariable	{{
+closevariable	}}
+openblock	    {%
+closeblock	    %}
+openbrace	    {
+closebrace	    }
+opencomment	    {#
+closecomment	#} -->
+
+
+<!-- verbatim -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+{% verbatim mycode %}
+  {% for x in books %}
+    {% verbatim %}
+       <h1>{{ x }}</h1>
+    {% endverbatim %}
+  {% endfor %}
+{% endverbatim mycode %}
+
+</body>
+</html>                   -->
+
+
+
+<!-- with -->
+<!DOCTYPE html>
+<html>
+<body>
+
+{% with firstname="Manoj" %}
+  <h1>Hello {{ firstname }}</h1>
+{% endwith %}
+
+</body>
+</html>      
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<h1>Hello {{ firstname|upper }}, how are you?</h1>
+
+<p>In template.html you can see how to filter a variable.</p>
+<p>In views.py you can see the original value of the variable.</p>
+
+</body>
+</html>                   -->
+

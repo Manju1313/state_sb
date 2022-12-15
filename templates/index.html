@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>state</h1>
+
+
+<h2>search/filter records between two given days</h2>
+<h3>Search bar & Date filter</h3>
+</hr>
+<!-- <form method="POST">
+    {% csrf_token %} -->
+<div class="col-lg-4">
+    From:-<input type="date" name="fromdate"/>
+</div>
+<div class="col-lg-4">
+    To:-<input type="date" name="todate"/>
+
+    <input type="submit"  name="search"/>
+</div>
+</hr>
+<table class="table mt-4">
+    <thead>
+      <tr>
+        <th scope="col">first_name</th>
+        <th scope="col">last_name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in sum %}
+      <tr>
+        <td>{{i.first_name}}</td>
+        <td>{{i.last_name}}</td>
+        <td>{{i.Age}}</td>
+        <td>{{i.date}}</td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+  </form>
+{% endblock %}
+
+
